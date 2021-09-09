@@ -7,8 +7,10 @@
         <title>Document</title>
     </head>
     <body>
-        Hello
         <div id="app">
+            <input v-model="message">
+            <input v-bind:value="message" v-on:input="message = $event.target.value">
+            
 
             {{message}}
 
