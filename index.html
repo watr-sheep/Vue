@@ -5,6 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie-edge">
         <title>Document</title>
+        <style>
+            .text-red {
+                color:red;
+            }
+            .text-green {
+                color:green;
+            }
+        </style>
     </head>
     <body>
         <div id="app">
@@ -34,7 +42,7 @@
             </p>
             <p>
                 <span v-for="(item, index) in list">
-                    <span>
+                    <span v-bind:class="{'text-red' : item.color === 'red', 'text-green': item.color === 'green'}">
                        {{index + 1}}. {{item.name}},
                     </span>
                 </span>
@@ -55,9 +63,9 @@
                         password: ""
                     },
                     list: [
-                        {name:"a - foo", age: 10},
-                        {name:"a - john", age: 15},
-                        {name:"b - doe", age: 20}
+                        {name:"a - foo", color: 'red'},
+                        {name:"a - john", color: 'red'},
+                        {name:"b - doe", color: 'green'}
                     ],
                     show: true,
                     user:null
