@@ -33,14 +33,14 @@
             </p>
 
             <p>
-                <button v-on:click="user =  { name: 'Bob'}">Toggle</button>
+                <button v-on:click="show = !show">Toggle</button>
                 
                 <span v-if="user">
                     {{user.name}}
                 </span>
 
             </p>
-            <p>
+            <p v-if="show">
                 <span v-for="(item, index) in list">
                     <span v-bind:class="{'text-red' : item.color === 'red', 'text-green': item.color === 'green'}">
                        {{index + 1}}. {{item.name}},
@@ -69,6 +69,12 @@
                     ],
                     show: true,
                     user:null
+                },
+                created(){
+                    console.log("Component Created")
+                },
+                beforeDestroy(){
+                    console.log("Component Destroyed")
                 },
                 methods: {
                     submitForm() {
